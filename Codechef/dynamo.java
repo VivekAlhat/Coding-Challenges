@@ -6,18 +6,21 @@ class dynamo{
 		Scanner sc = new Scanner(System.in);
 		int t = sc.nextInt();
 		while(t-->0){
-			int s=1;
-			int n = sc.nextInt();
-			int a = sc.nextInt();
-			for(int i=a;i<n;++i){
+			long s=1;
+			long n = sc.nextLong();
+			long a = sc.nextLong();
+			for(int i=0;i<n;++i){
 				s *= 10;
 			}
 			System.out.println(a+2*s);
-			int b = sc.nextInt();
+			System.out.flush();
+			long b = sc.nextLong();
 			System.out.println(s-b);
-			int d = sc.nextInt();
+			System.out.flush();
+			long d = sc.nextLong();
 			System.out.println(s-d);
-			int ss = sc.nextInt();
+			System.out.flush();
+			long ss = sc.nextLong();
 		}
 	}
 }
