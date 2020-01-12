@@ -20,7 +20,7 @@ class formatting{
 		for(int i=0;i<3;++i){
 			String s = sc.next(); // To avoid input mismatch exception because nextline reads entire line and hence int causes exception
 			int num = sc.nextInt();
-			System.out.println("%-15s%03d\n",s,num);
+			System.out.printf("%-15s%03d\n",s,num);
 		}
 		System.out.println("================================");
 	}
