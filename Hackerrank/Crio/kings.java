@@ -17,9 +17,8 @@ class kings{
 		}
 		
 		String res = v.get(n-1);
-		int l = res.length();
 		//System.out.println(res);
-		if(l<k){
+		if(res.length();<k){
 			System.out.println("-1");
 		}else{
 			System.out.println(res.charAt(k-1));
