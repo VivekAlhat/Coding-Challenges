@@ -1,41 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-bool isOdd(int);
-
+typedef long long int ll;
 int main(){
-        int t;
-        cin>>t;
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        ll t;
+        scanf("%lld",&t);
         while(t--) {
-                int num;
-                bool val;
-                cin>>num;
-
-                // if there is only one page
-                if(num==1) {
-                        cout<<"1"<<endl<<"1 1"<<endl;
-                        break;
-                }
-                int ans = sqrt(num);
-                cout<<ans<<endl;
-                for(int i=0; i<ans; ++i) {
-                        val = isOdd(num);
-                        if(val && i==0) {
-                                cout<<"3";
-                        }else{
-                                cout<<"2";
+                ll n, lim;
+                scanf("%lld",&n);
+                if(n<=4) {
+                        printf("%d\n", 1);
+                        printf("%lld ", n);
+                        for(int i=0; i<n; ++i) {
+                                printf("%d ", i+1);
                         }
-                        cout<<" "<<(i*2+1)<<" "<<(i*2+2);
-                        if(val) {
-                                if(i==0) cout<<" "<<num;
+                        printf("\n");
+                }else{
+                        lim = 4;
+                        ll ans = n/2;
+                        printf("%lld\n", ans);
+                        printf("%d %d %d %d\n",3,1,2,3);
+                        while(lim<n) {
+                                if ((n-lim)>=1) {
+                                        printf("%d %lld %lld\n",2,lim,lim+1);
+                                        // cout<<2<<" "<<lim<<" "<<lim+1<<endl;
+                                        lim = lim+2;
+                                }
                         }
-                        cout<<endl;
+                        if(n%2==0) {
+                                printf("%d %lld\n", 1,n);
+                        }
                 }
-                return 0;
         }
-}
-
-bool isOdd(int n){
-        bool res = n & 1;
-        return res;
+        return 0;
 }
