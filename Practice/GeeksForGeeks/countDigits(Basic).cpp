@@ -11,3 +11,7 @@ int main(){
   cout<<count<<endl;
   return 0;
 }
+
+/*
+  Time Complexity: O(total_digits)
+*/
