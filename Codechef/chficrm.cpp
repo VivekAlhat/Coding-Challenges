@@ -15,6 +15,12 @@ int main()
             cin >> people[i];
         }
 
+        if (n == 0)
+        {
+            cout << "YES" << endl;
+            exit(0);
+        }
+
         vector<int> chef;
 
         for (int i = 0; i < n; ++i)
@@ -43,6 +49,10 @@ int main()
         if (accumulate(chef.begin(), chef.end(), 0) == n * 5)
         {
             cout << "YES" << endl;
+        }
+        else if (people[0] > 5)
+        {
+            cout << "NO" << endl;
         }
         else
         {
