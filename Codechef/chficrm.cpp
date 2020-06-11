@@ -7,7 +7,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n;
+        int n, cost, cnt, p;
         cin >> n;
         int people[n];
         for (int i = 0; i < n; ++i)
@@ -15,14 +15,8 @@ int main()
             cin >> people[i];
         }
 
-        if (n == 0)
-        {
-            cout << "YES" << endl;
-            exit(0);
-        }
-
         vector<int> chef;
-
+        vector<int>::const_iterator pos;
         for (int i = 0; i < n; ++i)
         {
             if (people[i] == 5)
@@ -31,18 +25,44 @@ int main()
             }
             else
             {
-                int cost = people[i] - 5;
+                cost = people[i] - 5;
 
-                int cnt = count(chef.begin(), chef.end(), cost);
-
-                chef.erase(remove(chef.begin(), chef.end(), cost), chef.end());
-
-                for (int i = 0; i < cnt - 1; ++i)
+                if (cost == 5)
                 {
-                    chef.push_back(cost);
+                    cnt = count(chef.begin(), chef.end(), 5);
+                    if (cnt > 0)
+                    {
+                        pos = upper_bound(chef.begin(), chef.end(), 5);
+                        p = (pos - chef.begin()) - 1;
+                        chef.erase(chef.begin() + p);
+                        chef.push_back(people[i]);
+                    }
                 }
-
-                chef.push_back(people[i]);
+                else if (cost == 10)
+                {
+                    cnt = count(chef.begin(), chef.end(), 10);
+                    if (cnt > 0)
+                    {
+                        pos = upper_bound(chef.begin(), chef.end(), 10);
+                        p = (pos - chef.begin()) - 1;
+                        chef.erase(chef.begin() + p);
+                        chef.push_back(people[i]);
+                    }
+                    else if (cnt == 0)
+                    {
+                        cnt = count(chef.begin(), chef.end(), 5);
+                        if (cnt > 2)
+                        {
+                            for (int i = 0; i < 2; ++i)
+                            {
+                                pos = upper_bound(chef.begin(), chef.end(), 5);
+                                p = (pos - chef.begin()) - 1;
+                                chef.erase(chef.begin() + p);
+                            }
+                        }
+                        chef.push_back(people[i]);
+                    }
+                }
             }
         }
 
