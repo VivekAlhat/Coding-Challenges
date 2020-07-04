@@ -23,6 +23,11 @@ int main()
         }
         ll x = pointX[0];
         ll y = pointY[0];
+        /* 
+        We have to find elements that appear only once
+        The most efficient approach is using xor, since xor of same elements if 0 
+        hence, performing xor of all elements will give unique number
+        */
         for (int i = 1, j = 1; i < pointX.size() && j < pointY.size(); ++i, ++j)
         {
             x = x ^ pointX.at(i);
